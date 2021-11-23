@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block start %}
+
+<div class="container">
+    <a href ="{% url 'see_blog' %}" class="btn btn-success mt-5">View Your Blogs</a>
+    <form method="post" class="mt-5 pt-5 mb-5 pb-5" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-12">
+                <label>Enter Blog Title</label>
+                <input type="text" value="{{ blog_obj.title }}" class="form-control" placeholder="Enter Title" name="title">
+            </div>
+            <div class="col-md-12">
+                {{ form.media }}
+                {{ form.as_p }}
+            </div>
+            <div class="col-md-12">
+                <label>Add Image</label>
+                <input type="file" value="{{ blog_obj.image }}" name="image" class="form-control">
+            </div>
+        </div>
+        <button type = "submit" class="btn btn-primary mt-4"> Update Blog</button>
+    </form>
+
+</div>
+
+{% endblock %}
