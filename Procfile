@@ -1,0 +1,1 @@
+web: gunicorn BlogWeb.wsgi
